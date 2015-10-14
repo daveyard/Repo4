@@ -22,7 +22,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
          path="/"
          doc:name="HTTP" />
       <logger
-         message=" Log1"
+         message=" Log1 msg"
          level="INFO"
          doc:name="Log1" />
    </flow>
