@@ -25,5 +25,10 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
          message=" Log1 msg"
          level="INFO"
          doc:name="Log1" />
+               <logger
+         message=" Log2 msg"
+         level="INFO"
+         doc:name="Log2" />
+         
    </flow>
 </mule>
