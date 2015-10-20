@@ -7,27 +7,45 @@
             <SizeBasedTriggeringPolicy size="10 MB" />
             <DefaultRolloverStrategy max="10"/>
         </RollingFile>
-    </Appenders>
-    <Loggers>
-        <!-- CXF is used heavily by Mule for web services -->
-        <AsyncLogger name="org.apache.cxf" level="WARN"/>
-
-        <!-- Apache Commons tend to make a lot of noise which can clutter the log-->
-        <AsyncLogger name="org.apache" level="WARN"/>
-
-        <!-- Reduce startup noise -->
-        <AsyncLogger name="org.springframework.beans.factory" level="WARN"/>
-
-        <!-- Mule classes -->
-        <AsyncLogger name="org.mule" level="INFO"/>
-        <AsyncLogger name="com.mulesoft" level="INFO"/>
-
-        <!-- Reduce DM verbosity -->
-        <AsyncLogger name="org.jetel" level="WARN"/>
-        <AsyncLogger name="Tracking" level="WARN"/>
         
-        <AsyncRoot level="INFO">
-            <AppenderRef ref="file" />
-        </AsyncRoot>
-    </Loggers>
+        	<!-- $$$ New appender -->
+	<File name="OrigoLogAppender1" fileName="logs/Origo1.log">
+		<PatternLayout>
+			<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+		</PatternLayout>
+	</File>
+	
+	<File name="OrigoLogAppender2" fileName="logs/Origo2.log">
+		<PatternLayout>
+			<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+		</PatternLayout>
+	</File>
+</Appenders>
+<Loggers>
+	<!-- CXF is used heavily by Mule for web services -->
+	<AsyncLogger name="org.apache.cxf" level="WARN" />
+	<!-- Apache Commons tend to make a lot of noise which can clutter the log -->
+	<AsyncLogger name="org.apache" level="WARN" />
+	<!-- Reduce startup noise -->
+	<AsyncLogger name="org.springframework.beans.factory"
+		level="WARN" />
+	<!-- Mule classes -->
+	<AsyncLogger name="org.mule" level="INFO" />
+	<AsyncLogger name="com.mulesoft" level="INFO" />
+	<!-- Reduce DM verbosity -->
+	<AsyncLogger name="org.jetel" level="WARN" />
+	<AsyncLogger name="Tracking" level="WARN" />
+	
+	<!-- $$$ New logger -->
+	<AsyncLogger name="Business1" level="WARN">
+		<AppenderRef ref="OrigoLogAppender1" />
+	</AsyncLogger>
+	
+	<AsyncLogger name="Business2" level="WARN">
+		<AppenderRef ref="OrigoLogAppender2" />
+	</AsyncLogger>
+	<AsyncRoot level="INFO">
+		<AppenderRef ref="file" />
+	</AsyncRoot>
+</Loggers>
 </Configuration>

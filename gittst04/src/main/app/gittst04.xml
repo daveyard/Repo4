@@ -25,6 +25,8 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
          message=" Log1 msg"
          level="INFO"
          doc:name="Log1" />
+        <logger message="Business log 1" level="WARN" category="Business1" doc:name="Business Logger1"/>
+        <logger message="The 2nd type of business message" level="WARN" category="Business2" doc:name="BusinessLogger2"/>
          
    </flow>
 </mule>
