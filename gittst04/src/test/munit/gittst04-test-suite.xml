@@ -9,6 +9,6 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
     </spring:beans>
     <munit:test name="gittst04-test-suite-gittst04FlowTest" description="Test">
         <flow-ref name="gittst04Flow" doc:name="Flow-ref to gittst04Flow"/>
-        <munit:assert-true message="A big failure" condition="#[0==1]" doc:name="Assert True"/>
+        <munit:assert-true message="A big failure" condition="#[1==1]" doc:name="Assert True"/>
     </munit:test>
 </mule>
